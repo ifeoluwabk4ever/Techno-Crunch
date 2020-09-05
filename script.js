@@ -111,3 +111,28 @@ let slides = document.querySelectorAll('.slide'),
     }
 
     let timer = setInterval(autoPlay,10000);
+    
+    async function getComments() {
+        try {
+            let promise = await fetch('https://jsonplaceholder.typicode.com/comments');
+            let response = await promise.json();
+            let data = response;
+
+            var random = data[Math.floor(Math.random() * data.length)];
+
+            output = `
+                <ul class="list-group mb-3">
+                    <li class="list-group-item">${random.body}</li>
+                    <li class="list-group-item list-name">${random.name}</li>
+                </ul>
+            `;
+
+
+            document.querySelector('.output').innerHTML = output;
+        } catch (err) {
+            console.log(err)
+        }
+    }
+    setInterval(() => {
+        getComments();
+    }, 10000);

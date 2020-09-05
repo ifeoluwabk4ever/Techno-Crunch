@@ -393,6 +393,17 @@ button:hover{
     justify-content: space-between;
     border: 1px solid white;
 }
+.list-group-item {
+    list-style: none;
+}
+.list-name{
+    text-align: right;
+    padding-top: 0.5rem;
+    font-style: italic;
+    color: #cf84c3;
+    font-weight: bold;
+    text-transform: capitalize;
+}
 .feed-statement p{
     width: 90%;
 }
